@@ -38,19 +38,25 @@ get_header(); ?>
 		<!-- REST API indhold starter her -->
 		<div id="div_produkter">				
 				<main id="main_produkter">
-				<nav id="oeltype_filtrering">
-					<button data-oeltype="alle" class="valgt">Alle</button>
-				</nav>
-				<nav id="nationalitet_filtrering">
-					<button data-nationalitet="alle" class="valgt">Alle</button>
-				</nav>
-				<nav id="bryggeri_filtrering">
-					<button data-bryggeri="alle" class="valgt">Alle</button>
-				</nav>
+					<section id="filtrering_menu">
+						<nav id="oeltype_filtrering">
+							<h3>Øltype</h3>
+							<button data-oeltype="alle" class="valgt">Alle</button>
+						</nav>
+						<nav id="nationalitet_filtrering">
+							<h3>Nationalitet</h3>
+							<button data-nationalitet="alle" class="valgt">Alle</button>
+						</nav>
+						<nav id="bryggeri_filtrering">
+							<h3>Bryggeri</h3>
+							<button data-bryggeri="alle" class="valgt">Alle</button>
+						</nav>
+					</section>
 
-				<section id="produkt_indhold">
-					<article id="produkt_article"></article>
-				</section>
+					<section id="produkt_indhold">
+						<article id="produkt_article"></article>
+					</section>
+				</main>
 
 				<template>
 					<article>

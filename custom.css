@@ -21,7 +21,7 @@ img.billede:hover {
 
 #produkt_indhold #produkt_article {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2.5rem;
   grid-column: 2/3;
 }
@@ -41,13 +41,20 @@ img.billede:hover {
   cursor: pointer;
 }
 
-/* nav#filtrering {
+#filtrering_menu {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
   margin: 1.5rem;
-  flex-wrap: wrap;
-} */
+  max-width: 20%;
+}
+
+main#main_produkter {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
 
 /* ----------------- Single view ------------------- */
 
