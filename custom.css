@@ -1,0 +1,68 @@
+/* ----------------- Global CSS ------------------- */
+
+img.billede {
+  transition: all 0.3s ease;
+  max-width: 40%;
+}
+
+img.billede:hover {
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+.valgt {
+  background-color: #a47c52;
+  color: #ffffff;
+}
+
+/* ----------------- Forsiden ------------------- */
+
+/* ----------------- Produkter ------------------- */
+
+#produkt_indhold #produkt_article {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  grid-column: 2/3;
+}
+
+#produkt_article article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#produkt_indhold {
+  grid-column: 2/3;
+}
+
+#produkt_indhold img,
+#produkt_indhold button {
+  cursor: pointer;
+}
+
+/* nav#filtrering {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem;
+  flex-wrap: wrap;
+} */
+
+/* ----------------- Single view ------------------- */
+
+article#hoved_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#hoved_info img.billede {
+  width: 75%;
+}
+
+/* ----------------- Om os ------------------- */
+
+/* ----------------- Kontakt ------------------- */
