@@ -53,14 +53,18 @@ img.billede:hover {
 
 article#hoved_info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
-#hoved_info img.billede {
-  width: 75%;
+.left_col {
+  max-width: 50%;
+}
+
+.left_col img.billede {
+  max-width: 100%;
 }
 
 /* ----------------- Om os ------------------- */

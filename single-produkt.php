@@ -28,20 +28,23 @@ get_header(); ?>
 
 		<?php astra_primary_content_bottom(); ?>
 
-		<main id="main" class="single-kursus-main">
-					<section id="kursus-oversigt">
+		<main id="main" class="single-produkt-main">
+					<section id="produkt-oversigt">
 						<button id="back_knap">Tilbage til katalog</button>
 						<article id="hoved_info">
-							<img class="billede" src="" alt="">
-							<h2 class="titel"></h2>
-							<p class="nationalitet"></p>
-							<p class="oeltype"></p>
-							<p class="bryggeri"></p>
-							<p class="smag"></p>
-							<p class="pris"></p>
-							<p class="info"></p>
-							<p class="procent"></p>
-							<button class="videre">Læs mere</button>
+							<div class="left_col">
+								<img class="billede" src="" alt="">
+							</div>
+							<div class="right_col">
+								<h2 class="titel"></h2>
+								<p class="nationalitet"></p>
+								<p class="oeltype"></p>
+								<p class="bryggeri"></p>
+								<p class="smag"></p>
+								<p class="pris"></p>
+								<p class="info"></p>
+								<p class="procent"></p>
+							</div>
 						</article>
 					</section>
 				</main><!-- #main -->
