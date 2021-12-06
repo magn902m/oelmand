@@ -28,7 +28,7 @@ get_header(); ?>
 
 		<?php astra_primary_content_bottom(); ?>
 
-		<main id="main" class="single-produkt-main">
+		<main id="single-produkt-main">
 					<section id="produkt-oversigt">
 						<button id="back_knap">Tilbage til katalog</button>
 						<article id="hoved_info">
@@ -37,7 +37,7 @@ get_header(); ?>
 							</div>
 							<div class="right_col">
 								<h2 class="titel"></h2>
-								<p class="nationalitet"></p>
+								<p><b>Nationalitet</b><span class="nationalitet"></span></p>
 								<p class="oeltype"></p>
 								<p class="bryggeri"></p>
 								<p class="smag"></p>
@@ -69,13 +69,13 @@ get_header(); ?>
 					function visProdukt() {
 						document.querySelector(".billede").src = produkt.billede.guid;
 						document.querySelector(".titel").textContent = produkt.navn;
-						document.querySelector(".pris").textContent = produkt.pris + " kr.-";
-						document.querySelector(".oeltype").textContent = produkt.vaelg_oeltype;
-						document.querySelector(".nationalitet").textContent = produkt.vaelg_nationalitet;
-						document.querySelector(".smag").textContent = produkt.smag;
-						document.querySelector(".bryggeri").textContent = produkt.vaelg_byggeri;
-						document.querySelector(".info").textContent = produkt.info;
-						document.querySelector(".procent").textContent = produkt.procent;
+						document.querySelector(".pris").textContent = "Pris: " + produkt.pris + " kr.-";
+						document.querySelector(".oeltype").textContent = "Øltype: " + produkt.vaelg_oeltype;
+						document.querySelector(".nationalitet").textContent = "Nationalitet: " + produkt.vaelg_nationalitet;
+						document.querySelector(".smag").textContent = "Smag: " + produkt.smag;
+						document.querySelector(".bryggeri").textContent = "Bryggeri: " + produkt.vaelg_byggeri;
+						document.querySelector(".info").textContent = "Produktbeskrivelse: " + produkt.info;
+						document.querySelector(".procent").textContent = "Alkohol procent: " + produkt.procent;
 					}
 					
 

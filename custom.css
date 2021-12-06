@@ -16,6 +16,19 @@ img.billede:hover {
   color: #ffffff;
   text-decoration: underline;
 }
+#div_produkter,
+#single-produkt-main {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  gap: 1rem;
+}
+
+#main_produkter,
+#produkt-oversigt {
+  grid-column: 2/3;
+}
 
 /* ----------------- Forsiden ------------------- */
 
@@ -32,6 +45,7 @@ img.billede:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 #produkt_indhold {
@@ -48,11 +62,11 @@ img.billede:hover {
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  margin: 1.5rem;
+  margin-right: 1.5rem;
   max-width: 20%;
 
   position: sticky;
-  top: 0;
+  top: 60px;
 }
 
 main#main_produkter {
@@ -79,7 +93,7 @@ section#filtrering_menu button {
 
 article#hoved_info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -91,6 +105,12 @@ article#hoved_info {
 
 .left_col img.billede {
   max-width: 100%;
+}
+
+@media (min-width: 650px) {
+  article#hoved_info {
+    flex-direction: row;
+  }
 }
 
 /* ----------------- Om os ------------------- */
