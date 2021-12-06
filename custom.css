@@ -95,11 +95,16 @@ section#filtrering_menu nav {
   overflow: scroll;
 }
 
+/* #filtrering_menu nav {
+  transform: translateY(-100%);
+} */
+
 /* Fold menu start */
 #fold_menu {
-  transform: translateX(-100%);
+  transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
   margin: 0;
+  display: block;
 }
 
 #fold_menu.hide {
@@ -107,17 +112,7 @@ section#filtrering_menu nav {
 }
 
 #fold_menu.open {
-  transform: translateX(0);
-}
-
-#fold_menu a {
-  font-family: sans-serif;
-  color: var(--color1_2);
-  font-weight: 700;
-  font-size: 1.7rem;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97),
-    opacity 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
+  transform: translateY(0);
 }
 
 section#filtrering_menu #oeltype_filtrering {
@@ -126,6 +121,18 @@ section#filtrering_menu #oeltype_filtrering {
   display: flex;
   flex-direction: column;
 }
+
+section#filtrering_menu nav.hidden {
+  width: 0rem;
+  height: 0rem;
+}
+
+section#filtrering_menu nav.ready {
+  width: 9rem;
+  height: 10rem;
+  overflow: scroll;
+}
+
 /* Menu slut */
 
 /* ----------------- Single view ------------------- */
