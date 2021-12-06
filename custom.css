@@ -95,6 +95,39 @@ section#filtrering_menu nav {
   overflow: scroll;
 }
 
+/* Fold menu start */
+#fold_menu {
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
+  margin: 0;
+}
+
+#fold_menu.hide {
+  transition-delay: 500ms;
+}
+
+#fold_menu.open {
+  transform: translateX(0);
+}
+
+#fold_menu a {
+  font-family: sans-serif;
+  color: var(--color1_2);
+  font-weight: 700;
+  font-size: 1.7rem;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97),
+    opacity 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
+}
+
+section#filtrering_menu #oeltype_filtrering {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* Menu slut */
+
 /* ----------------- Single view ------------------- */
 
 article#hoved_info {

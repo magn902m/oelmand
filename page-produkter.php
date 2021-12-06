@@ -41,9 +41,21 @@ get_header(); ?>
 
 					<section id="filtrering_menu">
 						<h4>Øltype</h4>
+						<div id="fold_btn">
+							<button id="arrow_down">V</button>
+						</div>
+						<nav>
+							<ul id="fold_menu" class="hide">
+							<nav id="oeltype_filtrering">
+								<button data-oeltype="alle" class="valgt">Alle</button>
+								</nav>
+							</ul>
+						</nav>
+
+						<!-- <h4>Øltype</h4>
 						<nav id="oeltype_filtrering">
 							<button data-oeltype="alle" class="valgt">Alle</button>
-						</nav>
+						</nav> -->
 
 						<h4>Nationalitet</h4>
 						<nav id="nationalitet_filtrering">
@@ -214,6 +226,43 @@ get_header(); ?>
 						}
 						
 						getJSON();
+
+						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører openMenu() functionen.
+						document.querySelector("#fold_btn").addEventListener("click", openMenu);
+
+						// Open Menu
+						function openMenu() {
+						//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
+						const burgerBtn = document.querySelector("#fold_btn");
+						const menu = document.querySelector("#fold_menu");
+
+						//Her bliver EventListener fjernet fra openMenu
+						burgerBtn.removeEventListener("click", openMenu);
+
+						//Alle class bliver fjernet.
+						burgerBtn.classList = "";
+						//Her bliver der tilføjet class open til #burger_btn og #menu.
+						burgerBtn.classList = "open";
+						menu.classList = "open";
+
+						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører hideMenu() functionen.
+						burgerBtn.addEventListener("click", hideMenu);
+						}
+
+						// Hide Menu
+						function hideMenu() {
+						//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
+						const burgerBtn = document.querySelector("#fold_btn");
+						const menu = document.querySelector("#fold_menu");
+
+						burgerBtn.removeEventListener("click", hideMenu);
+
+						burgerBtn.classList = "";
+						burgerBtn.classList = "hide";
+						menu.classList = "hide";
+						burgerBtn.addEventListener("click", openMenu);
+						}
+
 					</script>
 					<!-- REST API indhold slutter her -->
 
