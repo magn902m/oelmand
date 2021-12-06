@@ -89,6 +89,12 @@ section#filtrering_menu button {
   color: #000000;
 }
 
+section#filtrering_menu nav {
+  width: 9rem;
+  height: 10rem;
+  overflow: scroll;
+}
+
 /* ----------------- Single view ------------------- */
 
 article#hoved_info {
