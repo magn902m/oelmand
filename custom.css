@@ -107,6 +107,10 @@ article#hoved_info {
   max-width: 100%;
 }
 
+#single-produkt-main p {
+  margin-bottom: 0.75em;
+}
+
 @media (min-width: 650px) {
   article#hoved_info {
     flex-direction: row;

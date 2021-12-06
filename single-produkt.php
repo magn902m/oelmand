@@ -37,13 +37,13 @@ get_header(); ?>
 							</div>
 							<div class="right_col">
 								<h2 class="titel"></h2>
-								<p><b>Nationalitet</b><span class="nationalitet"></span></p>
-								<p class="oeltype"></p>
-								<p class="bryggeri"></p>
-								<p class="smag"></p>
-								<p class="pris"></p>
-								<p class="info"></p>
-								<p class="procent"></p>
+								<p><b>Nationalitet: </b><span class="nationalitet"></span></p>
+								<p><b>Øltype: </b><span class="oeltype"></span></p>
+								<p><b>Bryggeri: </b><span class="bryggeri"></span></p>
+								<p><b>Smag: </b><span class="smag"></span></p>
+								<p><b>Pris: </b><span class="pris"></span></p>
+								<p><b>Produktbeskrivelse: </b><span class="info"></span></p>
+								<p><b>Alkohol procent: </b><span class="procent"></span></p>
 							</div>
 						</article>
 					</section>
@@ -69,13 +69,13 @@ get_header(); ?>
 					function visProdukt() {
 						document.querySelector(".billede").src = produkt.billede.guid;
 						document.querySelector(".titel").textContent = produkt.navn;
-						document.querySelector(".pris").textContent = "Pris: " + produkt.pris + " kr.-";
-						document.querySelector(".oeltype").textContent = "Øltype: " + produkt.vaelg_oeltype;
-						document.querySelector(".nationalitet").textContent = "Nationalitet: " + produkt.vaelg_nationalitet;
-						document.querySelector(".smag").textContent = "Smag: " + produkt.smag;
-						document.querySelector(".bryggeri").textContent = "Bryggeri: " + produkt.vaelg_byggeri;
-						document.querySelector(".info").textContent = "Produktbeskrivelse: " + produkt.info;
-						document.querySelector(".procent").textContent = "Alkohol procent: " + produkt.procent;
+						document.querySelector(".pris").textContent = produkt.pris + " kr.-";
+						document.querySelector(".oeltype").textContent = produkt.vaelg_oeltype;
+						document.querySelector(".nationalitet").textContent = produkt.vaelg_nationalitet;
+						document.querySelector(".smag").textContent = produkt.smag;
+						document.querySelector(".bryggeri").textContent = produkt.vaelg_byggeri;
+						document.querySelector(".info").textContent = produkt.info;
+						document.querySelector(".procent").textContent = produkt.procent;
 					}
 					
 
