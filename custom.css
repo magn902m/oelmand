@@ -3,6 +3,7 @@
 img.billede {
   transition: all 0.3s ease;
   max-width: 40%;
+  /* background-color: #ebebeb91; */
 }
 
 img.billede:hover {
@@ -11,8 +12,9 @@ img.billede:hover {
 }
 
 .valgt {
-  background-color: #a47c52;
+  background-color: transparent;
   color: #ffffff;
+  text-decoration: underline;
 }
 
 /* ----------------- Forsiden ------------------- */
@@ -48,12 +50,29 @@ img.billede:hover {
   gap: 0.5rem;
   margin: 1.5rem;
   max-width: 20%;
+
+  position: sticky;
+  top: 0;
 }
 
 main#main_produkter {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+}
+
+section#filtrering_menu > nav {
+  display: flex;
+  flex-direction: column;
+}
+
+section#filtrering_menu button {
+  padding: 5px;
+  margin: 0;
+  text-align: start;
+  border-color: transparent;
+  background-color: transparent;
+  color: #000000;
 }
 
 /* ----------------- Single view ------------------- */
