@@ -302,6 +302,31 @@ get_header(); ?>
 						burgerBtn.addEventListener("click", openMenu);
 						}
 
+
+						const arrowBtn = document.querySelector("#arrow_down");
+						arrowBtn.addEventListener("click", rotationArrowBtn);
+
+						function rotationArrowBtn() {
+							console.log("rotationArrowBtn");
+
+							const arrowBtn = document.querySelector("#arrow_down");
+
+							let erRotertet = arrowBtn.classList.contains("rotation");
+
+							if (erRotertet == true) {
+								arrowBtn.classList.remove("rotation");
+								arrowBtn.classList.remove("rotation_tilbage_kf");
+								arrowBtn.offsetLeft;
+								arrowBtn.classList.add("rotation_tilbage_kf");
+							} else {
+								arrowBtn.classList.remove("rotation_tilbage_kf");
+								arrowBtn.classList.remove("rotation");
+								arrowBtn.offsetLeft;
+								arrowBtn.classList.add("rotation");
+							}
+
+						}
+
 					</script>
 					<!-- REST API indhold slutter her -->
 

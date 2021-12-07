@@ -108,6 +108,10 @@ section#filtrering_menu nav {
   flex-direction: column;
 }
 
+section#filtrering_menu button#arrow_down {
+  padding: 6px 0px 0px 2px;
+}
+
 /* #filtrering_menu nav {
   transform: translateY(-100%);
 } */
@@ -123,6 +127,7 @@ section#filtrering_menu nav {
   transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
   margin: 0;
   display: block;
+  transition-delay: 500ms;
 }
 
 #fold_menu.hide {
@@ -149,6 +154,34 @@ section#filtrering_menu nav.ready {
   width: 90vw;
   height: 20rem;
   overflow: scroll;
+}
+
+.rotation {
+  animation-name: rotation_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes rotation_kf {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.rotation_tilbage {
+  animation-name: rotation_tilbage_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes rotation_tilbage_kf {
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Menu slut */
