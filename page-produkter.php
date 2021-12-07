@@ -40,7 +40,7 @@ get_header(); ?>
 				<main id="main_produkter">
 
 					<section id="filtrering_menu">
-						<h4>Øltype</h4>
+						<!-- <h4>Øltype</h4>
 						<div id="fold_btn">
 							<button id="arrow_down">V</button>
 						</div>
@@ -50,22 +50,56 @@ get_header(); ?>
 									<button data-oeltype="alle" class="valgt">Alle</button>
 								</nav>
 							</ul>
-						</nav>
-
-						<!-- <h4>Øltype</h4>
-						<nav id="oeltype_filtrering">
-							<button data-oeltype="alle" class="valgt">Alle</button>
 						</nav> -->
 
+						<h3>Filter</h3>
+						<div id="fold_btn">
+							<button id="arrow_down">V</button>
+						</div>
+						<nav id="luk_sammen" class="hidden">
+							<ul id="fold_menu" class="hide">
+								<div>
+						<h4>Øltype</h4>
+						<nav id="oeltype_filtrering">
+							<button data-oeltype="alle" class="valgt">Alle</button>
+						</nav>
+						</div>
+
+						<div>
 						<h4>Nationalitet</h4>
 						<nav id="nationalitet_filtrering">
 							<button data-nationalitet="alle" class="valgt">Alle</button>
 						</nav>
+						</div>
 
+						<div>
 						<h4>Bryggeri</h4>
 						<nav id="bryggeri_filtrering">
 							<button data-bryggeri="alle" class="valgt">Alle</button>
 						</nav>
+						</div>
+							</ul>
+						</nav>
+						<!-- <div>
+						<h4>Øltype</h4>
+						<nav id="oeltype_filtrering">
+							<button data-oeltype="alle" class="valgt">Alle</button>
+						</nav>
+						</div>
+
+						<div>
+						<h4>Nationalitet</h4>
+						<nav id="nationalitet_filtrering">
+							<button data-nationalitet="alle" class="valgt">Alle</button>
+						</nav>
+						</div>
+
+						<div>
+						<h4>Bryggeri</h4>
+						<nav id="bryggeri_filtrering">
+							<button data-bryggeri="alle" class="valgt">Alle</button>
+						</nav>
+						</div> -->
 					</section>
 
 					<section id="produkt_indhold">

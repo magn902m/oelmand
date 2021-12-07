@@ -16,8 +16,8 @@ img.billede:hover {
   color: #ffffff;
   text-decoration: underline;
 }
-#div_produkter,
-#single-produkt-main {
+
+#div_produkter {
   display: grid;
   grid-template-columns: 1fr minmax(0, 1200px) 1fr;
   overflow-wrap: break-word;
@@ -26,7 +26,7 @@ img.billede:hover {
 }
 
 #main_produkter,
-#produkt-oversigt {
+#single-produkt-main {
   grid-column: 2/3;
 }
 
@@ -36,9 +36,8 @@ img.billede:hover {
 
 #produkt_indhold #produkt_article {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 2.5rem;
-  grid-column: 2/3;
 }
 
 #produkt_article article {
@@ -48,10 +47,6 @@ img.billede:hover {
   text-align: center;
 }
 
-#produkt_indhold {
-  grid-column: 2/3;
-}
-
 #produkt_indhold img,
 #produkt_indhold button {
   cursor: pointer;
@@ -59,11 +54,10 @@ img.billede:hover {
 
 #filtrering_menu {
   display: flex;
+  /* flex-direction: row; */
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
-  margin-right: 1.5rem;
-  max-width: 20%;
+  background-color: #ffffff;
 
   position: sticky;
   top: 60px;
@@ -71,8 +65,13 @@ img.billede:hover {
 
 main#main_produkter {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  /* align-items: center; */
   align-items: flex-start;
+}
+
+#filtrering_menu h4 {
+  font-weight: 600;
 }
 
 section#filtrering_menu > nav {
@@ -89,10 +88,17 @@ section#filtrering_menu button {
   color: #000000;
 }
 
+#filtrering_menu div {
+  display: flex;
+  flex-direction: column;
+}
+
 section#filtrering_menu nav {
-  width: 9rem;
-  height: 10rem;
+  /* width: 9rem;
+  height: 10rem; */
   overflow: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 /* #filtrering_menu nav {
@@ -128,12 +134,33 @@ section#filtrering_menu nav.hidden {
 }
 
 section#filtrering_menu nav.ready {
-  width: 9rem;
-  height: 10rem;
+  width: 90vw;
+  height: 20rem;
   overflow: scroll;
 }
 
 /* Menu slut */
+
+@media (min-width: 706px) {
+  #filtrering_menu {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-right: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 20%;
+    border-right: 1px solid;
+  }
+
+  main#main_produkter {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  section#filtrering_menu nav.ready {
+    width: 9rem;
+  }
+}
 
 /* ----------------- Single view ------------------- */
 
