@@ -1,5 +1,10 @@
 /* ----------------- Global CSS ------------------- */
 
+body.page-template-default.page.page-id-36.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-page-builder-template.ast-no-sidebar.astra-3\.7\.5.elementor-default.elementor-kit-12.elementor-page.elementor-page-36.customize-support.e--ua-blink.e--ua-chrome.e--ua-mac.e--ua-webkit,
+body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-blog-single-style-1.ast-custom-post-type.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-separate-container.ast-no-sidebar.astra-3\.7\.5.ast-normal-title-enabled.elementor-default.elementor-kit-12.customize-support {
+  background-color: #fbfbfb;
+}
+
 img.billede {
   transition: all 0.3s ease;
   max-width: 40%;
@@ -36,7 +41,7 @@ img.billede:hover {
 
 #produkt_indhold #produkt_article {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2.5rem;
 }
 
@@ -57,7 +62,7 @@ img.billede:hover {
   /* flex-direction: row; */
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #fbfbfb;
 
   position: sticky;
   top: 60px;
@@ -70,9 +75,9 @@ main#main_produkter {
   align-items: flex-start;
 }
 
-#filtrering_menu h4 {
+/* #filtrering_menu h4 {
   font-weight: 600;
-}
+} */
 
 section#filtrering_menu > nav {
   display: flex;
@@ -82,6 +87,8 @@ section#filtrering_menu > nav {
 section#filtrering_menu button {
   padding: 5px;
   margin: 0;
+  margin-top: 3px;
+  margin-left: 10px;
   text-align: start;
   border-color: transparent;
   background-color: transparent;
@@ -106,6 +113,11 @@ section#filtrering_menu nav {
 } */
 
 /* Fold menu start */
+#filtrering_menu div#filter_box {
+  display: flex;
+  flex-direction: row;
+}
+
 #fold_menu {
   transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
@@ -173,11 +185,13 @@ article#hoved_info {
 }
 
 .left_col {
-  max-width: 50%;
+  /* max-width: 50%; */
+  display: flex;
+  justify-content: center;
 }
 
 .left_col img.billede {
-  max-width: 100%;
+  max-width: 350px;
 }
 
 #single-produkt-main p {

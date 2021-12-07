@@ -51,10 +51,11 @@ get_header(); ?>
 								</nav>
 							</ul>
 						</nav> -->
-
-						<h3>Filter</h3>
+						<div id="filter_box">
+						<h3>Filtrer</h3>
 						<div id="fold_btn">
-							<button id="arrow_down">V</button>
+							<button id="arrow_down">➔</button>
+						</div>
 						</div>
 						<nav id="luk_sammen" class="hidden">
 							<ul id="fold_menu" class="hide">
