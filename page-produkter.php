@@ -220,7 +220,8 @@ get_header(); ?>
 					// console.log(produkt.oeltyper);
 
 					// Her bliver der kontrollet hvad filterne indholder. Dette har betydning for, hvad der sker udskrevet i browser. 
-					if ((filterOeltype == "alle"  || produkt.oeltype.includes(parseInt(filterOeltype))) && (filterNationalitet == "alle"  || produkt.nationalitet.includes(parseInt(filterNationalitet)))
+					if ((filterOeltype == "alle"  || produkt.oeltype.includes(parseInt(filterOeltype))) 
+					&& (filterNationalitet == "alle"  || produkt.nationalitet.includes(parseInt(filterNationalitet)))
 					&& (filterBryggeri == "alle"  || produkt.bryggeri.includes(parseInt(filterBryggeri)))) {
 					
 					// Her sætter vi en variable til at, aktivere skabelonens indhold.
