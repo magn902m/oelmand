@@ -24,12 +24,10 @@ get_header(); ?>
 
 		<?php astra_primary_content_top(); ?>
 
-		
-
 		<?php astra_primary_content_bottom(); ?>
 
-		<main id="single-produkt-main">
-					<section id="produkt-oversigt">
+		<main id="single_produkt_main">
+					<section id="produkt_oversigt">
 						<button id="back_knap">Tilbage til katalog</button>
 						<article id="hoved_info">
 							<div class="left_col">

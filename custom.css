@@ -1,28 +1,26 @@
 /* ----------------- Global CSS ------------------- */
 
+/* Baggrundsfarve på produkter og single view */
 body.page-template-default.page.page-id-36.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-page-builder-template.ast-no-sidebar.astra-3\.7\.5.elementor-default.elementor-kit-12.elementor-page.elementor-page-36.customize-support.e--ua-blink.e--ua-chrome.e--ua-mac.e--ua-webkit,
 body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-blog-single-style-1.ast-custom-post-type.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-separate-container.ast-no-sidebar.astra-3\.7\.5.ast-normal-title-enabled.elementor-default.elementor-kit-12.customize-support {
   background-color: #fbfbfb;
 }
 
-img.billede {
+.billede {
   transition: all 0.3s ease;
   max-width: 40%;
-  /* background-color: #ebebeb91; */
 }
 
-img.billede:hover {
+.billede:hover {
   transform: scale(0.95);
   transition: all 0.3s ease;
 }
 
-.valgt {
-  background-color: transparent;
-  color: #ffffff;
-  text-decoration: underline;
-}
+/* ----------------- Forsiden ------------------- */
 
-#div_produkter {
+/* ----------------- Produkter ------------------- */
+
+#main_produkter {
   display: grid;
   grid-template-columns: 1fr minmax(0, 1200px) 1fr;
   overflow-wrap: break-word;
@@ -30,14 +28,27 @@ img.billede:hover {
   gap: 1rem;
 }
 
-#main_produkter,
-#single-produkt-main {
+#produkter_oversigt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   grid-column: 2/3;
 }
 
-/* ----------------- Forsiden ------------------- */
+#filtrering_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  top: 60px;
+  padding-bottom: 50px;
+  background-color: #fbfbfb;
+}
 
-/* ----------------- Produkter ------------------- */
+.valgt {
+  background-color: transparent;
+  text-decoration: underline;
+}
 
 #produkt_indhold #produkt_article {
   display: grid;
@@ -57,34 +68,12 @@ img.billede:hover {
   cursor: pointer;
 }
 
-#filtrering_menu {
-  display: flex;
-  /* flex-direction: row; */
-  flex-direction: column;
-  justify-content: center;
-  background-color: #fbfbfb;
-
-  position: sticky;
-  top: 60px;
-}
-
-main#main_produkter {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  align-items: flex-start;
-}
-
-/* #filtrering_menu h4 {
-  font-weight: 600;
-} */
-
-section#filtrering_menu > nav {
+#filtrering_menu > nav {
   display: flex;
   flex-direction: column;
 }
 
-section#filtrering_menu button {
+#filtrering_menu button {
   padding: 5px;
   margin: 0;
   margin-top: 3px;
@@ -100,7 +89,7 @@ section#filtrering_menu button {
   flex-direction: column;
 }
 
-section#filtrering_menu nav {
+#filtrering_menu nav {
   /* width: 9rem;
   height: 10rem; */
   overflow: scroll;
@@ -108,16 +97,12 @@ section#filtrering_menu nav {
   flex-direction: column;
 }
 
-section#filtrering_menu button#arrow_down {
+#filtrering_menu #arrow_down {
   padding: 6px 0px 0px 2px;
 }
 
-/* #filtrering_menu nav {
-  transform: translateY(-100%);
-} */
-
 /* Fold menu start */
-#filtrering_menu div#filter_box {
+#filtrering_menu #filter_box {
   display: flex;
   flex-direction: row;
 }
@@ -138,24 +123,18 @@ section#filtrering_menu button#arrow_down {
   transform: translateY(0);
 }
 
-section#filtrering_menu #oeltype_filtrering {
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-section#filtrering_menu nav.hidden {
+#filtrering_menu nav.hidden {
   width: 0rem;
   height: 0rem;
 }
 
-section#filtrering_menu nav.ready {
+#filtrering_menu nav.ready {
   width: 90vw;
   height: 20rem;
   overflow: scroll;
 }
 
+/* Animation til pilen på filtering menuen */
 .rotation {
   animation-name: rotation_kf;
   animation-duration: 1s;
@@ -197,19 +176,31 @@ section#filtrering_menu nav.ready {
     border-right: 1px solid;
   }
 
-  main#main_produkter {
+  #produkter_oversigt {
     flex-direction: row;
     align-items: flex-start;
   }
 
-  section#filtrering_menu nav.ready {
+  #filtrering_menu nav.ready {
     width: 9rem;
   }
 }
 
 /* ----------------- Single view ------------------- */
 
-article#hoved_info {
+#single_produkt_main {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  gap: 1rem;
+}
+
+#produkt_oversigt {
+  grid-column: 2/3;
+}
+
+#hoved_info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,22 +208,21 @@ article#hoved_info {
   gap: 1rem;
 }
 
-.left_col {
-  /* max-width: 50%; */
+#hoved_info .left_col {
   display: flex;
   justify-content: center;
 }
 
-.left_col img.billede {
+#hoved_info .left_col .billede {
   max-width: 350px;
 }
 
-#single-produkt-main p {
+#single_produkt_main p {
   margin-bottom: 0.75em;
 }
 
 @media (min-width: 650px) {
-  article#hoved_info {
+  #hoved_info {
     flex-direction: row;
   }
 }

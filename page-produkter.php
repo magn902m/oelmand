@@ -38,73 +38,43 @@ get_header(); ?>
 		<!-- REST API indhold starter her -->
 		<div id="div_produkter">				
 				<main id="main_produkter">
-
+					<section id="produkter_oversigt">
 					<section id="filtrering_menu">
-						<!-- <h4>Øltype</h4>
-						<div id="fold_btn">
-							<button id="arrow_down">V</button>
-						</div>
-						<nav id="luk_sammen" class="hidden">
-							<ul id="fold_menu" class="hide">
-								<nav id="oeltype_filtrering">
-									<button data-oeltype="alle" class="valgt">Alle</button>
-								</nav>
-							</ul>
-						</nav> -->
 						<div id="filter_box">
-						<h3>Filtrer</h3>
-						<div id="fold_btn">
-							<button id="arrow_down">➔</button>
-						</div>
+							<h3>Filtrer</h3>
+							<div id="fold_btn">
+								<button id="arrow_down">➔</button>
+							</div>
 						</div>
 						<nav id="luk_sammen" class="hidden">
 							<ul id="fold_menu" class="hide">
 								<div>
-						<h4>Øltype</h4>
-						<nav id="oeltype_filtrering">
-							<button data-oeltype="alle" class="valgt">Alle</button>
-						</nav>
-						</div>
+									<h4>Øltype</h4>
+									<nav id="oeltype_filtrering">
+										<button data-oeltype="alle" class="valgt">Alle</button>
+									</nav>
+								</div>
 
-						<div>
-						<h4>Nationalitet</h4>
-						<nav id="nationalitet_filtrering">
-							<button data-nationalitet="alle" class="valgt">Alle</button>
-						</nav>
-						</div>
+								<div>
+									<h4>Nationalitet</h4>
+									<nav id="nationalitet_filtrering">
+										<button data-nationalitet="alle" class="valgt">Alle</button>
+									</nav>
+								</div>
 
-						<div>
-						<h4>Bryggeri</h4>
-						<nav id="bryggeri_filtrering">
-							<button data-bryggeri="alle" class="valgt">Alle</button>
-						</nav>
-						</div>
+								<div>
+									<h4>Bryggeri</h4>
+									<nav id="bryggeri_filtrering">
+										<button data-bryggeri="alle" class="valgt">Alle</button>
+									</nav>
+								</div>
 							</ul>
 						</nav>
-						<!-- <div>
-						<h4>Øltype</h4>
-						<nav id="oeltype_filtrering">
-							<button data-oeltype="alle" class="valgt">Alle</button>
-						</nav>
-						</div>
-
-						<div>
-						<h4>Nationalitet</h4>
-						<nav id="nationalitet_filtrering">
-							<button data-nationalitet="alle" class="valgt">Alle</button>
-						</nav>
-						</div>
-
-						<div>
-						<h4>Bryggeri</h4>
-						<nav id="bryggeri_filtrering">
-							<button data-bryggeri="alle" class="valgt">Alle</button>
-						</nav>
-						</div> -->
 					</section>
 
 					<section id="produkt_indhold">
 						<article id="produkt_article"></article>
+					</section>
 					</section>
 				</main>
 
@@ -113,7 +83,6 @@ get_header(); ?>
 						<img class="billede" src="" alt="">
 						<h5 class="titel"></h5>
 						<p class="pris"></p>
-						<!-- <button class="videre">Læs mere</button> -->
 					</article>
 				</template>
 
@@ -250,10 +219,6 @@ get_header(); ?>
 								klon.querySelector(".billede").addEventListener("click", () => {
 								location.href = produkt.link;
 								});
-
-								// klon.querySelector(".videre").addEventListener("click", () => {
-								// location.href = produkt.link;
-								// });
 
 								indhold_liste.appendChild(klon);
 								}
