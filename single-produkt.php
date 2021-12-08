@@ -67,7 +67,7 @@ get_header(); ?>
 					function visProdukt() {
 						document.querySelector(".billede").src = produkt.billede.guid;
 						document.querySelector(".titel").textContent = produkt.navn;
-						document.querySelector(".pris").textContent = produkt.pris + " kr.-";
+						document.querySelector(".pris").textContent = produkt.pris + " DKK";
 						document.querySelector(".oeltype").textContent = produkt.vaelg_oeltype;
 						document.querySelector(".nationalitet").textContent = produkt.vaelg_nationalitet;
 						document.querySelector(".smag").textContent = produkt.smag;

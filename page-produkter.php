@@ -230,7 +230,7 @@ get_header(); ?>
 					// Her bliver der valgt, hvor hvilket data, skal hen fra elementerne.
 					klon.querySelector(".billede").src = produkt.billede.guid;
 					klon.querySelector(".titel").textContent = produkt.navn;
-					klon.querySelector(".pris").textContent = produkt.pris + " kr.-";
+					klon.querySelector(".pris").textContent = produkt.pris + " DKK";
 
 					// Her bliver der tilføjet en lytter, på et billede, som fører hen til single view.
 					klon.querySelector(".billede").addEventListener("click", () => {
