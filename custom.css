@@ -2,10 +2,12 @@
 
 /* Baggrundsfarve på produkter og single view */
 body.page-template-default.page.page-id-36.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-page-builder-template.ast-no-sidebar.astra-3\.7\.5.elementor-default.elementor-kit-12.elementor-page.elementor-page-36.customize-support.e--ua-blink.e--ua-chrome.e--ua-mac.e--ua-webkit,
-body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-blog-single-style-1.ast-custom-post-type.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-separate-container.ast-no-sidebar.astra-3\.7\.5.ast-normal-title-enabled.elementor-default.elementor-kit-12.customize-support {
+body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-blog-single-style-1.ast-custom-post-type.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-separate-container.ast-no-sidebar.astra-3\.7\.5.ast-normal-title-enabled.elementor-default.elementor-kit-12.customize-support,
+body {
   background-color: #fbfbfb;
 }
 
+/* Billeder får en max-width og hover effect */
 .billede {
   transition: all 0.3s ease;
   max-width: 40%;
@@ -20,12 +22,14 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
 
 /* ----------------- Produkter ------------------- */
 
+/* Layout af sidens indhold */
 #main_produkter {
   display: grid;
   grid-template-columns: 1fr minmax(0, 1200px) 1fr;
   overflow-wrap: break-word;
   hyphens: auto;
   gap: 1rem;
+  margin-bottom: 8rem;
 }
 
 #produkter_oversigt {
@@ -35,42 +39,44 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
   grid-column: 2/3;
 }
 
-#filtrering_menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: sticky;
-  top: 60px;
-  padding-bottom: 50px;
-  background-color: #fbfbfb;
+#main_produkter img,
+#main_produkter button {
+  cursor: pointer;
 }
 
-.valgt {
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-#produkt_indhold #produkt_article {
+/* Layout af produkterne */
+#produkt_indhold {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2.5rem;
 }
 
-#produkt_article article {
+#produkt_indhold article {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-#produkt_indhold img,
-#produkt_indhold button {
-  cursor: pointer;
-}
-
-#filtrering_menu > nav {
+/* Layout af filtrering menu og elementer i */
+#filtrering_menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  top: 20px;
+  background-color: #fbfbfb;
+}
+
+#filtrering_menu nav {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.valgt {
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 #filtrering_menu button {
@@ -84,38 +90,28 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
   color: #000000;
 }
 
-#filtrering_menu div {
-  display: flex;
-  flex-direction: column;
-}
-
-#filtrering_menu nav {
-  /* width: 9rem;
-  height: 10rem; */
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-}
-
 #filtrering_menu #arrow_down {
   padding: 6px 0px 0px 2px;
 }
 
-/* Fold menu start */
+/* Fold menu */
 #filtrering_menu #filter_box {
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid;
 }
 
 #fold_menu {
+  display: block;
   transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
-  margin: 0;
-  display: block;
   transition-delay: 500ms;
+  margin: 0;
 }
 
 #fold_menu.hide {
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.83, 0.04, 0.1, 0.97);
   transition-delay: 500ms;
 }
 
@@ -124,8 +120,8 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
 }
 
 #filtrering_menu nav.hidden {
-  width: 0rem;
-  height: 0rem;
+  width: 9rem;
+  height: 0;
 }
 
 #filtrering_menu nav.ready {
@@ -134,10 +130,10 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
   overflow: scroll;
 }
 
-/* Animation til pilen på filtering menuen */
+/* Pil animation på fold menu */
 .rotation {
   animation-name: rotation_kf;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: both;
@@ -151,13 +147,17 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
 
 .rotation_tilbage {
   animation-name: rotation_tilbage_kf;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: both;
 }
 
 @keyframes rotation_tilbage_kf {
+  0% {
+    transform: rotate(90deg);
+  }
+
   100% {
     transform: rotate(0deg);
   }
@@ -173,7 +173,8 @@ body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-b
     margin-right: 1.5rem;
     padding-right: 1.5rem;
     max-width: 20%;
-    border-right: 1px solid;
+    top: 60px;
+    /* border-right: 1px solid; */
   }
 
   #produkter_oversigt {

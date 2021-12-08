@@ -36,47 +36,46 @@ get_header(); ?>
 		<!-- Astra indhold slutter her -->
 
 		<!-- REST API indhold starter her -->
-		<div id="div_produkter">				
+					
 				<main id="main_produkter">
 					<section id="produkter_oversigt">
-					<section id="filtrering_menu">
-						<div id="filter_box">
-							<h3>Filtrer</h3>
-							<div id="fold_btn">
-								<button id="arrow_down">➔</button>
+						<section id="filtrering_menu">
+							<div id="filter_box">
+								<h3>Filtrer</h3>
+								<div id="fold_btn">
+									<button id="arrow_down"class="rotation_tilbage">➔</button>
+								</div>
 							</div>
-						</div>
-						<nav id="luk_sammen" class="hidden">
-							<ul id="fold_menu" class="hide">
-								<div>
-									<h4>Øltype</h4>
-									<nav id="oeltype_filtrering">
-										<button data-oeltype="alle" class="valgt">Alle</button>
-									</nav>
-								</div>
+							<nav id="luk_sammen" class="hidden">
+								<ul id="fold_menu" class="hide">
+									<div>
+										<h4>Øltype</h4>
+										<nav id="oeltype_filtrering">
+											<button data-oeltype="alle" class="valgt">Alle</button>
+										</nav>
+									</div>
 
-								<div>
-									<h4>Nationalitet</h4>
-									<nav id="nationalitet_filtrering">
-										<button data-nationalitet="alle" class="valgt">Alle</button>
-									</nav>
-								</div>
+									<div>
+										<h4>Nationalitet</h4>
+										<nav id="nationalitet_filtrering">
+											<button data-nationalitet="alle" class="valgt">Alle</button>
+										</nav>
+									</div>
 
-								<div>
-									<h4>Bryggeri</h4>
-									<nav id="bryggeri_filtrering">
-										<button data-bryggeri="alle" class="valgt">Alle</button>
-									</nav>
-								</div>
-							</ul>
-						</nav>
-					</section>
+									<div>
+										<h4>Bryggeri</h4>
+										<nav id="bryggeri_filtrering">
+											<button data-bryggeri="alle" class="valgt">Alle</button>
+										</nav>
+									</div>
+								</ul>
+							</nav>
+						</section>
 
-					<section id="produkt_indhold">
-						<article id="produkt_article"></article>
+						<section id="produkt_indhold">
+						</section>
 					</section>
-					</section>
-				</main>
+				
 
 				<template>
 					<article>
@@ -195,7 +194,7 @@ get_header(); ?>
 						}
 
 						function visProdukter() {
-							const indhold_liste = document.querySelector("#produkt_indhold article");
+							const indhold_liste = document.querySelector("#produkt_indhold");
 							const skabelon = document.querySelector("template");
 
 							// console.log(produkter);
@@ -228,63 +227,64 @@ get_header(); ?>
 						getJSON();
 
 						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører openMenu() functionen.
-						document.querySelector("#fold_btn").addEventListener("click", openMenu);
+						document.querySelector("#filter_box").addEventListener("click", openMenu);
 
 						// Open Menu
 						function openMenu() {
 						//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
-						const burgerBtn = document.querySelector("#fold_btn");
+						const filterBox = document.querySelector("#filter_box");
 						const menu = document.querySelector("#fold_menu");
 						const nav = document.querySelector("#luk_sammen");
 
 						//Her bliver EventListener fjernet fra openMenu
-						burgerBtn.removeEventListener("click", openMenu);
+						filterBox.removeEventListener("click", openMenu);
 
 						//Alle class bliver fjernet.
-						burgerBtn.classList = "";
+						filterBox.classList = "";
 						//Her bliver der tilføjet class open til #burger_btn og #menu.
-						burgerBtn.classList = "open";
+						filterBox.classList = "open";
 						menu.classList = "open";
 						nav.classList = "ready";
 
 						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører hideMenu() functionen.
-						burgerBtn.addEventListener("click", hideMenu);
+						filterBox.addEventListener("click", hideMenu);
 						}
 
 						// Hide Menu
 						function hideMenu() {
 						//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
-						const burgerBtn = document.querySelector("#fold_btn");
+						const filterBox = document.querySelector("#filter_box");
 						const menu = document.querySelector("#fold_menu");
 						const nav = document.querySelector("#luk_sammen");
 
-						burgerBtn.removeEventListener("click", hideMenu);
+						filterBox.removeEventListener("click", hideMenu);
 
-						burgerBtn.classList = "";
-						burgerBtn.classList = "hide";
+						filterBox.classList = "";
+						filterBox.classList = "hide";
 						menu.classList = "hide";
 						nav.classList = "hidden";
-						burgerBtn.addEventListener("click", openMenu);
+						filterBox.addEventListener("click", openMenu);
 						}
 
 
-						const arrowBtn = document.querySelector("#arrow_down");
+						const arrowBtn = document.querySelector("#filter_box");
 						arrowBtn.addEventListener("click", rotationArrowBtn);
 
 						function rotationArrowBtn() {
 							console.log("rotationArrowBtn");
 
+							const filterBox = document.querySelector("#filter_box");
 							const arrowBtn = document.querySelector("#arrow_down");
 
 							let erRotertet = arrowBtn.classList.contains("rotation");
 
 							if (erRotertet == true) {
 								arrowBtn.classList.remove("rotation");
-								arrowBtn.classList.remove("rotation_tilbage_kf");
+								arrowBtn.classList.remove("rotation_tilbage");
 								arrowBtn.offsetLeft;
-								arrowBtn.classList.add("rotation_tilbage_kf");
+								arrowBtn.classList.add("rotation_tilbage");
 							} else {
-								arrowBtn.classList.remove("rotation_tilbage_kf");
+								arrowBtn.classList.remove("rotation_tilbage");
 								arrowBtn.classList.remove("rotation");
 								arrowBtn.offsetLeft;
 								arrowBtn.classList.add("rotation");
@@ -295,7 +295,8 @@ get_header(); ?>
 					</script>
 					<!-- REST API indhold slutter her -->
 
-	</div><!-- #primary -->
+	</main><!-- #primary -->
+
 
 <?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 
