@@ -75,7 +75,7 @@ get_header(); ?>
 						<section id="produkt_indhold">
 						</section>
 					</section>
-				
+				</main>
 
 				<template>
 					<article>
@@ -85,7 +85,9 @@ get_header(); ?>
 					</article>
 				</template>
 
-		<script>
+				<script>
+						// ------------------- REST API ------------------- //
+
 						// Indholder produkter
 						let produkter = [];
 
@@ -109,8 +111,10 @@ get_header(); ?>
 
 						// Henter alt rest api indhold, henter et array fra WP i json
 						async function getJSON() {
-							// Custom post produkter
+							// Custom post produkter. 
+							// Laver en variable, som venter på at der bliver hente et array.
 							const produktResponce = await fetch(produktUrl);
+							// Når arrayet er hentet, kommer array ind i variablen produkter.
 							produkter = await produktResponce.json();
 
 							// Custom kategorityper
@@ -133,6 +137,7 @@ get_header(); ?>
 							visProdukter();
 						}
 
+						// Her tager vi vores array og kører igennem et forEach loop, hvor vi laver en knap med navn og data-sæt, for hvert objekt i arrayet.
 						function filterKnapper (){
 							oeltyper.forEach(oeltype =>{
 								document.querySelector("#oeltype_filtrering").innerHTML += `<button class="filterOeltype" data-oeltype="${oeltype.id}">${oeltype.name}</button>`
@@ -149,6 +154,7 @@ get_header(); ?>
 							addEventListenersToKnapper();
 						}
 
+						// Ligesom før, tager vi nu knapperne og sætter en lyter på, som kalder en funktion, der passer til knappen.
 						function addEventListenersToKnapper(){
 							document.querySelectorAll("#oeltype_filtrering button").forEach(elm =>{
 								elm.addEventListener("click", filtreringOeltype);
@@ -164,12 +170,15 @@ get_header(); ?>
 						}
 
 						function filtreringOeltype(){
+							// Her tager vi vores filterOeltype og sætter det til data-sæt knappen indholder.
 							filterOeltype = this.dataset.oeltype;
 							console.log(parseInt(filterOeltype));
 
+							// Classen valgt bliver fjernet, og sæt på den knap, der er klikket på.
 							document.querySelector(".valgt").classList.remove("valgt");
 							this.classList.add("valgt");
 
+							// Produkter funktion, bliver kaldt.
 							visProdukter();
 						}
 
@@ -193,6 +202,7 @@ get_header(); ?>
 							visProdukter();
 						}
 
+						// I denne funktion, bliver array udskrevet til html, så det bliver synligt.
 						function visProdukter() {
 							const indhold_liste = document.querySelector("#produkt_indhold");
 							const skabelon = document.querySelector("template");
@@ -202,101 +212,111 @@ get_header(); ?>
 							// console.log(nationaliteter);
 							// console.log(bryggerier);
 
+							// Sletter alt indhold
 							indhold_liste.textContent = "";
 							
+							// Kører arrayet med produkter igennem et forEach loop.
 							produkter.forEach(produkt => {
 								// console.log(produkt.oeltyper);
 
+								// Her bliver der kontrollet hvad filterne indholder. Dette har betydning for, hvad der sker udskrevet i browser. 
 								if ((filterOeltype == "alle"  || produkt.oeltype.includes(parseInt(filterOeltype))) && (filterNationalitet == "alle"  || produkt.nationalitet.includes(parseInt(filterNationalitet)))
 								&& (filterBryggeri == "alle"  || produkt.bryggeri.includes(parseInt(filterBryggeri)))) {
+								
+								// Her sætter vi en variable til at, aktivere skabelonens indhold.
 								let klon = skabelon.cloneNode(true).content;
 
+								// Her bliver der valgt, hvor hvilket data, skal hen fra elementerne.
 								klon.querySelector(".billede").src = produkt.billede.guid;
 								klon.querySelector(".titel").textContent = produkt.navn;
 								klon.querySelector(".pris").textContent = produkt.pris + " kr.-";
 
+								// Her bliver der tilføjet en lytter, på et billede, som fører hen til single view.
 								klon.querySelector(".billede").addEventListener("click", () => {
 								location.href = produkt.link;
 								});
 
+								// Her bliver alle ting som er klonet udskrevet i browseren.
 								indhold_liste.appendChild(klon);
 								}
 							});
 						}
 						
+						//Her bliver getJSON() kald.
 						getJSON();
 
-						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører openMenu() functionen.
+						// REST API indhold slutter her
+
+						// ------------------- Fold menu JS ------------------- //
+
+						//Lytter efter om #filter_box bliver klikket på, som efter vil kører openMenu() functionen.
 						document.querySelector("#filter_box").addEventListener("click", openMenu);
 
 						// Open Menu
 						function openMenu() {
-						//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
-						const filterBox = document.querySelector("#filter_box");
-						const menu = document.querySelector("#fold_menu");
-						const nav = document.querySelector("#luk_sammen");
+							//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
+							const filterBox = document.querySelector("#filter_box");
+							const menu = document.querySelector("#fold_menu");
+							const nav = document.querySelector("#luk_sammen");
 
-						//Her bliver EventListener fjernet fra openMenu
-						filterBox.removeEventListener("click", openMenu);
+							//Her bliver EventListener fjernet fra openMenu
+							filterBox.removeEventListener("click", openMenu);
 
-						//Alle class bliver fjernet.
-						filterBox.classList = "";
-						//Her bliver der tilføjet class open til #burger_btn og #menu.
-						filterBox.classList = "open";
-						menu.classList = "open";
-						nav.classList = "ready";
+							//Alle class bliver fjernet.
+							filterBox.classList = "";
+							//Her bliver der tilføjet class open til #filter_box og #menu.
+							filterBox.classList = "open";
+							menu.classList = "open";
+							nav.classList = "opened";
 
-						//Lytter efter om #burger_btn bliver klikket på, som efter vil kører hideMenu() functionen.
-						filterBox.addEventListener("click", hideMenu);
+							//Lytter efter om #filter_box bliver klikket på, som efter vil kører hideMenu() functionen.
+							filterBox.addEventListener("click", hideMenu);
 						}
 
 						// Hide Menu
 						function hideMenu() {
-						//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
-						const filterBox = document.querySelector("#filter_box");
-						const menu = document.querySelector("#fold_menu");
-						const nav = document.querySelector("#luk_sammen");
+							//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
+							const filterBox = document.querySelector("#filter_box");
+							const menu = document.querySelector("#fold_menu");
+							const nav = document.querySelector("#luk_sammen");
 
-						filterBox.removeEventListener("click", hideMenu);
+							filterBox.removeEventListener("click", hideMenu);
 
-						filterBox.classList = "";
-						filterBox.classList = "hide";
-						menu.classList = "hide";
-						nav.classList = "hidden";
-						filterBox.addEventListener("click", openMenu);
+							filterBox.classList = "";
+							filterBox.classList = "hide";
+							menu.classList = "hide";
+							nav.classList = "hidden";
+							filterBox.addEventListener("click", openMenu);
 						}
 
-
-						const arrowBtn = document.querySelector("#filter_box");
-						arrowBtn.addEventListener("click", rotationArrowBtn);
+						//Lytter efter om #filter_box bliver klikket på, som efter vil kører rotationArrowBtn() functionen.
+						document.querySelector("#filter_box").addEventListener("click", rotationArrowBtn);
 
 						function rotationArrowBtn() {
 							console.log("rotationArrowBtn");
 
 							const filterBox = document.querySelector("#filter_box");
 							const arrowBtn = document.querySelector("#arrow_down");
-
+							
+							// Ser om arrow inden holder rotation
 							let erRotertet = arrowBtn.classList.contains("rotation");
 
+							// Hvis arrow inden holder rotation, fjerner den classerne, siger til browseren den er klar og tilføjer rotation_tilbage.
 							if (erRotertet == true) {
-								arrowBtn.classList.remove("rotation");
-								arrowBtn.classList.remove("rotation_tilbage");
-								arrowBtn.offsetLeft;
-								arrowBtn.classList.add("rotation_tilbage");
-							} else {
-								arrowBtn.classList.remove("rotation_tilbage");
-								arrowBtn.classList.remove("rotation");
-								arrowBtn.offsetLeft;
-								arrowBtn.classList.add("rotation");
-							}
-
+									arrowBtn.classList.remove("rotation");
+									arrowBtn.classList.remove("rotation_tilbage");
+									arrowBtn.offsetLeft;
+									arrowBtn.classList.add("rotation_tilbage");
+								} else {
+									arrowBtn.classList.remove("rotation_tilbage");
+									arrowBtn.classList.remove("rotation");
+									arrowBtn.offsetLeft;
+									arrowBtn.classList.add("rotation");
+								}
 						}
-
-					</script>
-					<!-- REST API indhold slutter her -->
-
-	</main><!-- #primary -->
-
+				</script>
+				
+	</div><!-- #primary -->
 
 <?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 

@@ -1,12 +1,5 @@
 /* ----------------- Global CSS ------------------- */
 
-/* Baggrundsfarve på produkter og single view */
-body.page-template-default.page.page-id-36.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-page-builder-template.ast-no-sidebar.astra-3\.7\.5.elementor-default.elementor-kit-12.elementor-page.elementor-page-36.customize-support.e--ua-blink.e--ua-chrome.e--ua-mac.e--ua-webkit,
-body.produkt-template-default.single.single-produkt.postid-178.logged-in.admin-bar.wp-custom-logo.ehf-template-astra.ehf-stylesheet-oelmand.ast-blog-single-style-1.ast-custom-post-type.ast-single-post.ast-inherit-site-logo-transparent.ast-hfb-header.ast-desktop.ast-separate-container.ast-no-sidebar.astra-3\.7\.5.ast-normal-title-enabled.elementor-default.elementor-kit-12.customize-support,
-body {
-  background-color: #fbfbfb;
-}
-
 /* Billeder får en max-width og hover effect */
 .billede {
   transition: all 0.3s ease;
@@ -22,7 +15,7 @@ body {
 
 /* ----------------- Produkter ------------------- */
 
-/* Layout af sidens indhold */
+/* ---- Layout af sidens indhold ---- */
 #main_produkter {
   display: grid;
   grid-template-columns: 1fr minmax(0, 1200px) 1fr;
@@ -44,7 +37,7 @@ body {
   cursor: pointer;
 }
 
-/* Layout af produkterne */
+/* ---- Layout af produkterne ---- */
 #produkt_indhold {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -58,14 +51,14 @@ body {
   text-align: center;
 }
 
-/* Layout af filtrering menu og elementer i */
+/* ---- Layout af filtrering menu og elementer i ---- */
 #filtrering_menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: sticky;
   top: 20px;
-  background-color: #fbfbfb;
+  background-color: var(--ast-global-color-5);
 }
 
 #filtrering_menu nav {
@@ -94,7 +87,7 @@ body {
   padding: 6px 0px 0px 2px;
 }
 
-/* Fold menu */
+/* ---- Fold menu ---- */
 #filtrering_menu #filter_box {
   display: flex;
   flex-direction: row;
@@ -124,13 +117,13 @@ body {
   height: 0;
 }
 
-#filtrering_menu nav.ready {
+#filtrering_menu nav.opened {
   width: 90vw;
   height: 20rem;
   overflow: scroll;
 }
 
-/* Pil animation på fold menu */
+/* ---- Pil animation på fold menu ---- */
 .rotation {
   animation-name: rotation_kf;
   animation-duration: 0.5s;
@@ -163,7 +156,7 @@ body {
   }
 }
 
-/* Menu slut */
+/* ---- Desktop filtrering menu ---- */
 
 @media (min-width: 706px) {
   #filtrering_menu {
@@ -174,7 +167,6 @@ body {
     padding-right: 1.5rem;
     max-width: 20%;
     top: 60px;
-    /* border-right: 1px solid; */
   }
 
   #produkter_oversigt {
@@ -182,13 +174,14 @@ body {
     align-items: flex-start;
   }
 
-  #filtrering_menu nav.ready {
+  #filtrering_menu nav.opened {
     width: 9rem;
   }
 }
 
 /* ----------------- Single view ------------------- */
 
+/* ---- Layout af sidens indhold ---- */
 #single_produkt_main {
   display: grid;
   grid-template-columns: 1fr minmax(0, 1200px) 1fr;
@@ -201,6 +194,7 @@ body {
   grid-column: 2/3;
 }
 
+/* ---- Layout af produktet ---- */
 #hoved_info {
   display: flex;
   flex-direction: column;
@@ -222,6 +216,7 @@ body {
   margin-bottom: 0.75em;
 }
 
+/* ---- Desktop layout af produktet ---- */
 @media (min-width: 650px) {
   #hoved_info {
     flex-direction: row;

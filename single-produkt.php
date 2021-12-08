@@ -45,25 +45,25 @@ get_header(); ?>
 							</div>
 						</article>
 					</section>
-				</main><!-- #main -->
+				</main>
 
 				<script>
-					// const urlParams = new URLSearchParams(window.location.search);
-					// const id = urlParams.get("id");
-					
 					let produkt;
-
 					const url = "https://designbymagnus.dk/kea/2_semester/tema10/oelmand/wp-json/wp/v2/produkt/" + <?php echo get_the_ID() ?>;
 
+					// Henter et objekt fra arrayet med produkter
 					async function getJSON() {
+						// Laver en variable, som venter på at der bliver hente et array.
 						const response = await fetch(url);
+						// Når arrayet er hentet, kommer array ind i variablen produkter.
 						produkt = await response.json();
-
 						console.log(produkt);
-
+						
+						// Kalder funktionen
 						visProdukt();
 					}
 
+					// Der bliver data fra objektet.
 					function visProdukt() {
 						document.querySelector(".billede").src = produkt.billede.guid;
 						document.querySelector(".titel").textContent = produkt.navn;
@@ -76,12 +76,14 @@ get_header(); ?>
 						document.querySelector(".procent").textContent = produkt.procent;
 					}
 					
-
+					// Her bliver der tilføjet en lytter, på en knap, som fører tilbage til produkter siden.
 					document.querySelector("#back_knap").addEventListener("click", () => {
 					window.history.back();
 					});
 
+					//Her bliver getJSON() kald.
 					getJSON();
+
 				</script>
 
 	</div><!-- #primary -->
