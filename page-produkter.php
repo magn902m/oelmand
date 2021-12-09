@@ -251,7 +251,48 @@ get_header(); ?>
 			// ------------------- Fold menu JS ------------------- //
 
 			//Lytter efter om #filter_box bliver klikket på, som efter vil kører openMenu() functionen.
-			document.querySelector("#filter_box").addEventListener("click", hideMenu);
+			function myFunction(x) {
+			if (x.matches) { // If media query matches
+				//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
+				const filterBox = document.querySelector("#filter_box");
+				const menu = document.querySelector("#fold_menu");
+				const nav = document.querySelector("#luk_sammen");
+
+				filterBox.removeEventListener("click", hideMenu);
+
+				filterBox.classList = "";
+				filterBox.classList = "hide";
+				menu.classList = "hide";
+				nav.classList = "hidden";
+				filterBox.addEventListener("click", openMenu);
+				console.log("openMenu");
+			} else {
+				//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
+				const filterBox = document.querySelector("#filter_box");
+				const menu = document.querySelector("#fold_menu");
+				const nav = document.querySelector("#luk_sammen");
+
+				//Her bliver EventListener fjernet fra openMenu
+				filterBox.removeEventListener("click", openMenu);
+
+				//Alle class bliver fjernet.
+				filterBox.classList = "";
+				//Her bliver der tilføjet class open til #filter_box og #menu.
+				filterBox.classList = "open";
+				menu.classList = "open";
+				nav.classList = "opened";
+
+				//Lytter efter om #filter_box bliver klikket på, som efter vil kører hideMenu() functionen.
+				filterBox.addEventListener("click", hideMenu);
+				console.log("hideMenu");
+			}
+				}
+
+			let x = window.matchMedia("(max-width: 706px)")
+			myFunction(x) // Call listener function at run time
+			x.addListener(myFunction) // Attach listener function on state changes
+			
+			// document.querySelector("#filter_box").addEventListener("click", hideMenu);
 
 			// Open Menu
 			function openMenu() {
