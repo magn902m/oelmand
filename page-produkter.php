@@ -43,11 +43,11 @@ get_header(); ?>
 					<div id="filter_box">
 						<h3>Filtrer</h3>
 						<div id="fold_btn">
-							<button id="arrow_down"class="rotation_tilbage">➔</button>
+							<button id="arrow_down"class="rotation">➔</button>
 						</div>
 					</div>
-					<nav id="luk_sammen" class="hidden">
-						<ul id="fold_menu" class="hide">
+					<nav id="luk_sammen" class="opened">
+						<ul id="fold_menu" class="open">
 							<div>
 								<h4>Øltype</h4>
 								<nav id="oeltype_filtrering">
@@ -251,7 +251,7 @@ get_header(); ?>
 			// ------------------- Fold menu JS ------------------- //
 
 			//Lytter efter om #filter_box bliver klikket på, som efter vil kører openMenu() functionen.
-			document.querySelector("#filter_box").addEventListener("click", openMenu);
+			document.querySelector("#filter_box").addEventListener("click", hideMenu);
 
 			// Open Menu
 			function openMenu() {
