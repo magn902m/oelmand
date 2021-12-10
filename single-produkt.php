@@ -26,26 +26,26 @@ get_header(); ?>
 
 		<?php astra_primary_content_bottom(); ?>
 
-		<main id="single_produkt_main">
-					<section id="produkt_oversigt">
-						<button id="back_knap">Tilbage til katalog</button>
-						<article id="hoved_info">
-							<div class="left_col">
-								<img class="billede" src="" alt="">
-							</div>
-							<div class="right_col">
-								<h2 class="titel"></h2>
-								<p><b>Nationalitet: </b><span class="nationalitet"></span></p>
-								<p><b>Øltype: </b><span class="oeltype"></span></p>
-								<p><b>Bryggeri: </b><span class="bryggeri"></span></p>
-								<p><b>Smag: </b><span class="smag"></span></p>
-								<p><b>Pris: </b><span class="pris"></span></p>
-								<p><b>Produktbeskrivelse: </b><span class="info"></span></p>
-								<p><b>Alkohol procent: </b><span class="procent"></span></p>
-							</div>
-						</article>
-					</section>
-				</main>
+		<section id="single_produkt_main">
+			<section id="produkt_oversigt">
+				<button id="back_knap">Tilbage til katalog</button>
+					<article id="hoved_info">
+						<div class="left_col">
+							<img class="billede" src="" alt="">
+						</div>
+						<div class="right_col">
+							<h2 class="titel"></h2>
+							<p><b>Nationalitet: </b><span class="nationalitet"></span></p>
+							<p><b>Øltype: </b><span class="oeltype"></span></p>
+							<p><b>Bryggeri: </b><span class="bryggeri"></span></p>
+							<p><b>Smag: </b><span class="smag"></span></p>
+							<p><b>Pris: </b><span class="pris"></span></p>
+							<p><b>Produktbeskrivelse: </b><span class="info"></span></p>
+							<p><b>Alkohol procent: </b><span class="procent"></span></p>
+						</div>
+				</article>
+			</section>
+		</section>
 
 				<script>
 					let produkt;

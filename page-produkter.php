@@ -29,7 +29,7 @@ get_header(); ?>
 
 		<!-- Astra indhold starter her -->
 		<?php astra_primary_content_top(); ?>
-
+        <h1></h1>
 		<?php astra_content_page_loop(); ?>
 
 		<?php astra_primary_content_bottom(); ?>
@@ -37,7 +37,7 @@ get_header(); ?>
 
 		<!-- REST API indhold starter her -->
 					
-		<main id="main_produkter">
+		<section id="main_produkter">
 			<section id="produkter_oversigt">
 				<section id="filtrering_menu">
 					<div id="filter_box">
@@ -75,7 +75,7 @@ get_header(); ?>
 				<section id="produkt_indhold">
 				</section>
 			</section>
-		</main>
+		</section>
 
 		<template>
 			<article>
@@ -252,47 +252,61 @@ get_header(); ?>
 
 			//Lytter efter om #filter_box bliver klikket på, som efter vil kører openMenu() functionen.
 			function myFunction(x) {
-			if (x.matches) { // If media query matches
-				//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
-				const filterBox = document.querySelector("#filter_box");
-				const menu = document.querySelector("#fold_menu");
-				const nav = document.querySelector("#luk_sammen");
+				if (x.matches) { // If media query matches
+					//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
+					const filterBox = document.querySelector("#filter_box");
+					const menu = document.querySelector("#fold_menu");
+					const nav = document.querySelector("#luk_sammen");
 
-				filterBox.removeEventListener("click", hideMenu);
+					filterBox.removeEventListener("click", hideMenu);
 
-				filterBox.classList = "";
-				filterBox.classList = "hide";
-				menu.classList = "hide";
-				nav.classList = "hidden";
-				filterBox.addEventListener("click", openMenu);
-				console.log("openMenu");
-			} else {
-				//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
-				const filterBox = document.querySelector("#filter_box");
-				const menu = document.querySelector("#fold_menu");
-				const nav = document.querySelector("#luk_sammen");
+					filterBox.classList = "";
+					filterBox.classList = "hide";
+					menu.classList = "hide";
+					nav.classList = "hidden";
+					filterBox.addEventListener("click", openMenu);
+					console.log("openMenu");
 
-				//Her bliver EventListener fjernet fra openMenu
-				filterBox.removeEventListener("click", openMenu);
-
-				//Alle class bliver fjernet.
-				filterBox.classList = "";
-				//Her bliver der tilføjet class open til #filter_box og #menu.
-				filterBox.classList = "open";
-				menu.classList = "open";
-				nav.classList = "opened";
-
-				//Lytter efter om #filter_box bliver klikket på, som efter vil kører hideMenu() functionen.
-				filterBox.addEventListener("click", hideMenu);
-				console.log("hideMenu");
-			}
+					const arrowBtn = document.querySelector("#arrow_down");
+				
+					arrowBtn.classList = "";
+					arrowBtn.offsetLeft;
+					arrowBtn.classList.add("rotation_tilbage");
 				}
+					
+				else {
+					//Her bliver der defineret conste variabler, så koden bliver mere læslig, men også nemmere at arbejde.
+					const filterBox = document.querySelector("#filter_box");
+					const menu = document.querySelector("#fold_menu");
+					const nav = document.querySelector("#luk_sammen");
+
+					//Her bliver EventListener fjernet fra openMenu
+					filterBox.removeEventListener("click", openMenu);
+
+					//Alle class bliver fjernet.
+					filterBox.classList = "";
+					//Her bliver der tilføjet class open til #filter_box og #menu.
+					filterBox.classList = "open";
+					menu.classList = "open";
+					nav.classList = "opened";
+
+					//Lytter efter om #filter_box bliver klikket på, som efter vil kører hideMenu() functionen.
+					filterBox.addEventListener("click", hideMenu);
+					console.log("hideMenu");
+
+					const arrowBtn = document.querySelector("#arrow_down");
+				
+					arrowBtn.classList = "";
+					arrowBtn.offsetLeft;
+					arrowBtn.classList.add("rotation");
+				}
+			}
 
 			let x = window.matchMedia("(max-width: 706px)")
 			myFunction(x) // Call listener function at run time
 			x.addListener(myFunction) // Attach listener function on state changes
-			
-			// document.querySelector("#filter_box").addEventListener("click", hideMenu);
+
+
 
 			// Open Menu
 			function openMenu() {

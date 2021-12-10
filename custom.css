@@ -62,9 +62,9 @@
 }
 
 #filtrering_menu nav {
-  overflow: scroll;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease;
 }
 
 .valgt {
@@ -115,6 +115,7 @@
 #filtrering_menu nav.hidden {
   width: 9rem;
   height: 0;
+  overflow: scroll;
 }
 
 #filtrering_menu nav.opened {
@@ -221,8 +222,34 @@
   #hoved_info {
     flex-direction: row;
   }
+
+  .right_col {
+    width: 30%;
+    max-width: 50%;
+  }
 }
 
 /* ----------------- Om os ------------------- */
 
 /* ----------------- Kontakt ------------------- */
+
+/* ----------------- Footer layout ------------------- */
+
+.site-footer-primary-section-1.site-footer-section.site-footer-section-1
+  aside.footer-widget-area.widget-area.site-footer-focus-item.footer-widget-area-inner {
+  display: grid;
+  grid-template-areas:
+    "top top"
+    "left right";
+}
+
+.site-footer-primary-section-1.site-footer-section.site-footer-section-1 {
+  display: grid;
+  grid-template-areas:
+    "top top"
+    "left right";
+}
+
+section#block-18 {
+  grid-area: top;
+}
