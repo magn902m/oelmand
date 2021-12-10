@@ -120,7 +120,7 @@
 
 #filtrering_menu nav.opened {
   width: 90vw;
-  height: 45vw;
+  height: 40vw;
   overflow: scroll;
 }
 
@@ -243,13 +243,16 @@
     "left right";
 }
 
-.site-footer-primary-section-1.site-footer-section.site-footer-section-1 {
-  display: grid;
-  grid-template-areas:
-    "top top"
-    "left right";
-}
-
 section#block-18 {
   grid-area: top;
+}
+
+section#block-20 {
+  grid-area: left;
+  margin-right: 10px;
+}
+
+section#block-21 {
+  grid-area: right;
+  margin-left: 10px;
 }
