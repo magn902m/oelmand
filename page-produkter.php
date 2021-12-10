@@ -229,6 +229,7 @@ get_header(); ?>
 
 					// Her bliver der valgt, hvor hvilket data, skal hen fra elementerne.
 					klon.querySelector(".billede").src = produkt.billede.guid;
+					klon.querySelector(".billede").alt = produkt.navn;
 					klon.querySelector(".titel").textContent = produkt.navn;
 					klon.querySelector(".pris").textContent = produkt.pris + " DKK";
 

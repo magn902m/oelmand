@@ -42,6 +42,7 @@ get_header(); ?>
 							<p><b>Pris: </b><span class="pris"></span></p>
 							<p><b>Produktbeskrivelse: </b><span class="info"></span></p>
 							<p><b>Alkohol procent: </b><span class="procent"></span></p>
+							<img class="infografik" src="" alt="">
 						</div>
 				</article>
 			</section>
@@ -66,6 +67,7 @@ get_header(); ?>
 					// Der bliver data fra objektet.
 					function visProdukt() {
 						document.querySelector(".billede").src = produkt.billede.guid;
+						document.querySelector(".billede").alt = produkt.navn;
 						document.querySelector(".titel").textContent = produkt.navn;
 						document.querySelector(".pris").textContent = produkt.pris + " DKK";
 						document.querySelector(".oeltype").textContent = produkt.vaelg_oeltype;
@@ -74,6 +76,8 @@ get_header(); ?>
 						document.querySelector(".bryggeri").textContent = produkt.vaelg_byggeri;
 						document.querySelector(".info").textContent = produkt.info;
 						document.querySelector(".procent").textContent = produkt.procent;
+						document.querySelector(".infografik").src = produkt.infografik.guid;
+						document.querySelector(".infografik").alt = "infografik om " + produkt.navn;
 					}
 					
 					// Her bliver der tilføjet en lytter, på en knap, som fører tilbage til produkter siden.
