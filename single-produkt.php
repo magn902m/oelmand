@@ -28,7 +28,7 @@ get_header(); ?>
 
 		<section id="single_produkt_main">
 			<section id="produkt_oversigt">
-				<button id="back_knap">Tilbage til katalog</button>
+				<button id="back_knap">Tilbage til udvalg</button>
 					<article id="hoved_info">
 						<div class="left_col">
 							<img class="billede" src="" alt="">

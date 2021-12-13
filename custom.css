@@ -217,6 +217,10 @@
   margin-bottom: 0.75em;
 }
 
+.infografik {
+  margin-top: 2.5rem;
+}
+
 /* ---- Desktop layout af produktet ---- */
 @media (min-width: 650px) {
   #hoved_info {
