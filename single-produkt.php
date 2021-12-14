@@ -81,8 +81,12 @@ get_header(); ?>
 					}
 					
 					// Her bliver der tilføjet en lytter, på en knap, som fører tilbage til produkter siden.
+					// document.querySelector("#back_knap").addEventListener("click", () => {
+					// window.history.back();
+					// });
+
 					document.querySelector("#back_knap").addEventListener("click", () => {
-					window.history.back();
+					location.href = "https://designbymagnus.dk/kea/2_semester/tema10/oelmand/produkter";
 					});
 
 					//Her bliver getJSON() kald.
