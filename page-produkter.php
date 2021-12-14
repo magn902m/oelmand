@@ -252,8 +252,8 @@ get_header(); ?>
 			// ------------------- Fold menu JS ------------------- //
 
 			//Lytter efter om #filter_box bliver klikket på, som efter vil kører openMenu() functionen.
-			function myFunction(x) {
-				if (x.matches) { // If media query matches
+			function screenSize(screenWidth) {
+				if (screenWidth.matches) { // If media query matches
 					//Her gør vi det samme som i openMenu, dog arbjeder vi med hide istedet for open.
 					const filterBox = document.querySelector("#filter_box");
 					const menu = document.querySelector("#fold_menu");
@@ -266,7 +266,7 @@ get_header(); ?>
 					menu.classList = "hide";
 					nav.classList = "hidden";
 					filterBox.addEventListener("click", openMenu);
-					console.log("openMenu");
+					console.log("hideMenu");
 
 					const arrowBtn = document.querySelector("#arrow_down");
 				
@@ -293,7 +293,7 @@ get_header(); ?>
 
 					//Lytter efter om #filter_box bliver klikket på, som efter vil kører hideMenu() functionen.
 					filterBox.addEventListener("click", hideMenu);
-					console.log("hideMenu");
+					console.log("openMenu");
 
 					const arrowBtn = document.querySelector("#arrow_down");
 				
@@ -303,9 +303,9 @@ get_header(); ?>
 				}
 			}
 
-			let x = window.matchMedia("(max-width: 706px)")
-			myFunction(x) // Call listener function at run time
-			x.addListener(myFunction) // Attach listener function on state changes
+			let screenWidth = window.matchMedia("(max-width: 706px)")
+			screenSize(screenWidth) // Call listener function at run time
+			screenWidth.addListener(screenSize) // Attach listener function on state changes
 
 
 
