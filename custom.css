@@ -237,6 +237,12 @@
 
 /* ----------------- Kontakt ------------------- */
 
+/* ----------------- Header ------------------- */
+
+img.custom-logo.astra-logo-svg:hover {
+  opacity: 50%;
+}
+
 /* ----------------- Footer layout ------------------- */
 
 .site-footer-primary-section-1.site-footer-section.site-footer-section-1
@@ -259,4 +265,12 @@ section#block-20 {
 section#block-21 {
   grid-area: right;
   margin-left: 10px;
+}
+
+section#block-20 img.wp-image-50:hover {
+  opacity: 50%;
+}
+
+section#block-21 img.wp-image-52:hover {
+  opacity: 50%;
 }
